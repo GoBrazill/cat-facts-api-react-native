@@ -7,7 +7,6 @@ import { GlobalStyles } from './src/styles/GlobalStyles';
 import api from './src/services/api';
 
 
-
 export default function App() {
   const [fontesCarregadas] = useFonts({
     Roboto_500Medium,
@@ -21,7 +20,7 @@ export default function App() {
       const res = await api.get('fact')
       setFato(res.data.fact)
     } catch (err) {
-      setFato('Erro ao carregar fato')
+      setFato('Não foi possível carregar um fato!')
     }
   }
 
@@ -38,7 +37,7 @@ export default function App() {
       <Text style={GlobalStyles.title}> Fatos sobre Gatos</Text>
       <Text style={GlobalStyles.fact}> {fato} </Text>
       <TouchableOpacity title='Carregar Fato' onPress={carregarFatos} style={GlobalStyles.button} >
-        <Text style={GlobalStyles.textButton}> Carregar Fato </Text>
+        <Text style={GlobalStyles.textButton}> Carregar outro fato </Text>
       </TouchableOpacity>
 
     </View>
